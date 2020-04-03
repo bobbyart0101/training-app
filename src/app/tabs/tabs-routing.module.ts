@@ -8,45 +8,45 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'fitness-overview',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../fitness-overview/fitness-overview.module').then(m => m.FitnessOverviewPageModule)
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'analytics',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../analytics/analytics.module').then(m => m.AnalyticsPageModule)
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'setting',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../setting/setting.module').then(m => m.SettingPageModule)
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/fitness-overview',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/fitness-overview',
     pathMatch: 'full'
   }
 ];
