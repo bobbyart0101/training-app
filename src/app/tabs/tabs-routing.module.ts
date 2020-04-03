@@ -14,6 +14,11 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../fitness-overview/fitness-overview.module').then(m => m.FitnessOverviewPageModule)
+          },
+          {
+            path: 'training-set/:id',
+            loadChildren: () =>
+                import('../training-set/training-set.module').then(m => m.TrainingSetPageModule)
           }
         ]
       },

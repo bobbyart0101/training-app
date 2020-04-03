@@ -24,3 +24,15 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.training-type__header{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  min-height: 150px;
+}
+ion-item-sliding ion-label {
+  border-left: 2px solid var( --ion-color-primary);
+  padding-left: 10px;
+}
