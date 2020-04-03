@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {IonItemSliding} from '@ionic/angular';
 
 @Component({
     selector: 'app-training-set',
@@ -7,17 +9,18 @@ import {Component, OnInit} from '@angular/core';
 })
 export class TrainingSetPage implements OnInit {
 
-    constructor() {
+    constructor(public router: Router) {
     }
 
     ngOnInit() {
     }
 
     addSet() {
-
+      this.router.navigate(['tabs/fitness-overview/training-set-update/', 'test' ]);
     }
 
-    editSet() {
-
+    editSet(slidingItem: IonItemSliding) {
+      slidingItem.close();
+      this.router.navigate(['tabs/fitness-overview/training-set-update/', 'test' ]);
     }
 }

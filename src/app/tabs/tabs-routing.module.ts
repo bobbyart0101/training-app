@@ -23,7 +23,7 @@ const routes: Routes = [
           {
             path: 'training-set-update/:id',
             loadChildren: () =>
-                import('../pages/training-set-form/training-set-form-routing.module').then(m => m.TrainingSetFormPageRoutingModule)
+                import('../pages/training-set-form/training-set-form.module').then(m => m.TrainingSetFormPageModule)
           }
         ]
       },
