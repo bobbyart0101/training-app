@@ -13,12 +13,17 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../fitness-overview/fitness-overview.module').then(m => m.FitnessOverviewPageModule)
+              import('./fitness-overview/fitness-overview.module').then(m => m.FitnessOverviewPageModule)
           },
           {
             path: 'training-set/:id',
             loadChildren: () =>
-                import('../training-set/training-set.module').then(m => m.TrainingSetPageModule)
+                import('../pages/training-set/training-set.module').then(m => m.TrainingSetPageModule)
+          },
+          {
+            path: 'training-set-update/:id',
+            loadChildren: () =>
+                import('../pages/training-set-form/training-set-form-routing.module').then(m => m.TrainingSetFormPageRoutingModule)
           }
         ]
       },
@@ -28,7 +33,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../analytics/analytics.module').then(m => m.AnalyticsPageModule)
+              import('./analytics/analytics.module').then(m => m.AnalyticsPageModule)
           }
         ]
       },
@@ -38,7 +43,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../setting/setting.module').then(m => m.SettingPageModule)
+              import('./setting/setting.module').then(m => m.SettingPageModule)
           }
         ]
       },

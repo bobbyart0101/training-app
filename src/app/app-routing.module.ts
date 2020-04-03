@@ -8,7 +8,11 @@ const routes: Routes = [
   },
   {
     path: 'training-set',
-    loadChildren: () => import('./training-set/training-set.module').then( m => m.TrainingSetPageModule)
+    loadChildren: () => import('./pages/training-set/training-set.module').then(m => m.TrainingSetPageModule)
+  },
+  {
+    path: 'training-set-form',
+    loadChildren: () => import('./pages/training-set-form/training-set-form.module').then(m => m.TrainingSetFormPageModule)
   }
 ];
 @NgModule({
