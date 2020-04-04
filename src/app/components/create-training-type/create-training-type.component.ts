@@ -8,9 +8,14 @@ import {ModalController} from '@ionic/angular';
     styleUrls: ['./create-training-type.component.scss'],
 })
 export class CreateTrainingTypeComponent implements OnInit {
-
+    customAlertOptions: any = {
+        header: 'Hair Color',
+        subHeader: 'Select your hair color',
+        message: 'Only select your dominant hair color'
+    };
     constructor(private modalCtrl: ModalController) {
     }
+
 
     ngOnInit() {
     }
