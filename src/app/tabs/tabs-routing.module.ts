@@ -13,7 +13,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('./fitness-overview/fitness-overview.module').then(m => m.FitnessOverviewPageModule)
+              import('../tab/fitness-overview/fitness-overview.module').then(m => m.FitnessOverviewPageModule)
           },
           {
             path: 'training-set/:id',
@@ -33,7 +33,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('./analytics/analytics.module').then(m => m.AnalyticsPageModule)
+              import('../tab/analytics/analytics.module').then(m => m.AnalyticsPageModule)
           }
         ]
       },
@@ -43,7 +43,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('./setting/setting.module').then(m => m.SettingPageModule)
+              import('../tab/setting/setting.module').then(m => m.SettingPageModule)
           }
         ]
       },
