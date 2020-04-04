@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { AnalyticsPage } from './analytics.page';
 import {TrainingChartComponent} from '../../charts/training-chart/training-chart.component';
 import {ChartsModule} from 'ng2-charts';
+import {TableComponent} from '../../components/table/table.component';
+import {NgxDatatableModule} from '@swimlane/ngx-datatable';
 
 @NgModule({
   imports: [
@@ -13,8 +15,9 @@ import {ChartsModule} from 'ng2-charts';
     CommonModule,
     FormsModule,
     RouterModule.forChild([{path: '', component: AnalyticsPage}]),
-    ChartsModule
+    ChartsModule,
+    NgxDatatableModule
   ],
-  declarations: [AnalyticsPage, TrainingChartComponent]
+  declarations: [AnalyticsPage, TrainingChartComponent, TableComponent]
 })
 export class AnalyticsPageModule {}
