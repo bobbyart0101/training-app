@@ -1,3 +1,7 @@
 @import '~@swimlane/ngx-datatable/index.css';
 @import '~@swimlane/ngx-datatable/themes/material.css';
 @import '~@swimlane/ngx-datatable/assets/icons.css';
+.ngx-datatable.material{
+  box-shadow: none;
+  border: 1px solid var( --ion-color-secondary);
+}
