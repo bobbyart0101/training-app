@@ -36,3 +36,7 @@ ion-item-sliding ion-label {
   border-left: 2px solid var( --ion-color-primary);
   padding-left: 10px;
 }
+
+.ion-invalid.ion-touched ion-label{
+  color: var(--ion-color-danger);
+}

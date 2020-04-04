@@ -9,5 +9,4 @@ import {Router} from '@angular/router';
 export class SettingPage {
 
   constructor(public router: Router) {}
-
 }

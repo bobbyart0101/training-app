@@ -1,12 +1,62 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>Training Set</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Training Set</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="ion-padding">
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="12">
+                    <ion-list>
+                        <ion-item>
+                            <ion-label position="floating">Weight</ion-label>
+                            <ion-input
+                                    type="number"
+                                    ngModel
+                                    name="weight"
+                                    required
+                                    #weightCtrl="ngModel"
+                            ></ion-input>
+                        </ion-item>
+                        <ion-item *ngIf="!weightCtrl.valid && weightCtrl.touched" lines="none">
+                            <ion-label>Should be a valid value</ion-label>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label position="floating">Time</ion-label>
+                            <ion-input
+                                    type="number"
+                                    ngModel
+                                    name="time"
+                                    required
+                                    #timeCtrl="ngModel"
+                            ></ion-input>
+                        </ion-item>
+                        <ion-item *ngIf="!timeCtrl.valid && timeCtrl.touched" lines="none">
+                            <ion-label>Should be a valid value</ion-label>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label position="floating">Date</ion-label>
+                            <ion-datetime
+                                    ngModel
+                                    name="created"
+                                    required
+                                    displayFormat="MM/DD/YYYY"
+                                    #createdCtrl="ngModel"
+                                    placeholder="Select Date"></ion-datetime>
+                        </ion-item>
+                        <ion-item *ngIf="!createdCtrl.valid && createdCtrl.touched" lines="none">
+                            <ion-label>Should be a valid value</ion-label>
+                        </ion-item>
+                    </ion-list>
+                    <ion-button [disabled]="!form.valid"  color="primary" type="submit" expand="block" fill="outline">Add to my record
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
 </ion-content>

@@ -13,6 +13,14 @@ const routes: Routes = [
   {
     path: 'training-set-form',
     loadChildren: () => import('./pages/training-set-form/training-set-form.module').then(m => m.TrainingSetFormPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'training-type-form',
+    loadChildren: () => import('./pages/training-type-form/training-type-form.module').then( m => m.TrainingTypeFormPageModule)
   }
 ];
 @NgModule({
