@@ -44,11 +44,6 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('./setting/setting.module').then(m => m.SettingPageModule)
-          },
-          {
-            path: 'training-type',
-            loadChildren: () =>
-                import('../pages/training-type-form/training-type-form.module').then(m => m.TrainingTypeFormPageModule)
           }
         ]
       },

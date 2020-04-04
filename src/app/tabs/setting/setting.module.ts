@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SettingPage } from './setting.page';
+import {CreateTrainingTypeComponent} from '../../components/create-training-type/create-training-type.component';
 
 @NgModule({
   imports: [
@@ -12,6 +13,9 @@ import { SettingPage } from './setting.page';
     FormsModule,
     RouterModule.forChild([{ path: '', component: SettingPage }])
   ],
-  declarations: [SettingPage]
+  entryComponents: [
+    CreateTrainingTypeComponent
+  ],
+  declarations: [SettingPage, CreateTrainingTypeComponent]
 })
 export class SettingPageModule {}

@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { TrainingTypeFormPage } from './training-type-form.page';
+import { CreateTrainingTypeComponent } from './create-training-type.component';
 
-describe('TrainingTypeFormPage', () => {
-  let component: TrainingTypeFormPage;
-  let fixture: ComponentFixture<TrainingTypeFormPage>;
+describe('CreateTrainingTypeComponent', () => {
+  let component: CreateTrainingTypeComponent;
+  let fixture: ComponentFixture<CreateTrainingTypeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TrainingTypeFormPage ],
+      declarations: [ CreateTrainingTypeComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(TrainingTypeFormPage);
+    fixture = TestBed.createComponent(CreateTrainingTypeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

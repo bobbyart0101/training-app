@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {IonItemSliding} from '@ionic/angular';
 
 @Component({
@@ -9,18 +9,21 @@ import {IonItemSliding} from '@ionic/angular';
 })
 export class TrainingSetPage implements OnInit {
 
-    constructor(public router: Router) {
+    constructor(public router: Router, public route: ActivatedRoute) {
     }
 
     ngOnInit() {
+        this.route.paramMap.subscribe((paramMap) => {
+            console.log(paramMap);
+        });
     }
 
     addSet() {
-      this.router.navigate(['tabs/fitness-overview/training-set-update/', 'test' ]);
+        this.router.navigate(['tabs/fitness-overview/training-set-update/', 'test']);
     }
 
     editSet(slidingItem: IonItemSliding) {
-      slidingItem.close();
-      this.router.navigate(['tabs/fitness-overview/training-set-update/', 'test' ]);
+        slidingItem.close();
+        this.router.navigate(['tabs/fitness-overview/training-set-update/', 'test']);
     }
 }
