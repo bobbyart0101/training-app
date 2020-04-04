@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SettingPage } from './setting.page';
 import {CreateTrainingTypeComponent} from '../../components/create-training-type/create-training-type.component';
-
 @NgModule({
   imports: [
     IonicModule,

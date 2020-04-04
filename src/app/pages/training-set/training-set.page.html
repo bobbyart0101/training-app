@@ -4,7 +4,7 @@
             <ion-back-button defaultHref="fitness-overview"></ion-back-button>
         </ion-buttons>
         <ion-buttons collapse="true" slot="end">
-            <ion-button color="primary"  (click)="addSet()">
+            <ion-button color="light" (click)="addSet()">
                 <ion-icon slot="icon-only" name="add-outline"></ion-icon>
             </ion-button>
         </ion-buttons>
@@ -20,19 +20,21 @@
                     <ion-item-sliding #slidingItem>
                         <ion-item>
                             <ion-label>
-                                <h3>11 kg / 5</h3>
+                                <ion-text>50 kg / 2</ion-text>
+                            </ion-label>
+                            <ion-note slot="end">
                                 <ion-icon name="calendar" class="space-left" color="primary"></ion-icon>
-                                <ion-text color="secondary">
+                                <ion-text>
                                     29.03.2020
                                 </ion-text>
-                            </ion-label>
+                            </ion-note>
                         </ion-item>
                         <ion-item-options side="end">
                             <ion-item-option (click)="editSet(slidingItem)">
-                                <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+                                <ion-icon color="light" name="create-outline" slot="icon-only"></ion-icon>
                             </ion-item-option>
                             <ion-item-option>
-                                <ion-icon name="trash-outline"  slot="icon-only"></ion-icon>
+                                <ion-icon color="light" name="trash-outline" slot="icon-only"></ion-icon>
                             </ion-item-option>
                         </ion-item-options>
                     </ion-item-sliding>
@@ -40,12 +42,14 @@
                     <ion-item-sliding>
                         <ion-item>
                             <ion-label>
-                              <h3>50 kg / 2</h3>
+                                <ion-text>50 kg / 2</ion-text>
+                            </ion-label>
+                            <ion-note slot="end">
                                 <ion-icon name="calendar" class="space-left" color="primary"></ion-icon>
-                                <ion-text color="secondary">
+                                <ion-text>
                                     29.03.2020
                                 </ion-text>
-                            </ion-label>
+                            </ion-note>
                         </ion-item>
                         <ion-item-options side="end">
                             <ion-item-option>Unread</ion-item-option>

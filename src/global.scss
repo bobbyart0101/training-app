@@ -31,6 +31,13 @@
   align-items: center;
   align-self: center;
   min-height: 150px;
+  ion-card-title{
+    color: white;
+  }
+}
+.training-type__card{
+  background: -webkit-linear-gradient(to right, var( --ion-color-primary), var( --ion-color-secondary));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right,  var( --ion-color-primary), var( --ion-color-secondary)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 ion-item-sliding ion-label {
   border-left: 2px solid var( --ion-color-primary);
@@ -39,4 +46,20 @@ ion-item-sliding ion-label {
 
 .ion-invalid.ion-touched ion-label{
   color: var(--ion-color-danger);
+}
+ion-header, ion-toolbar{
+  --background: none;
+  background: -webkit-linear-gradient(to right, var( --ion-color-primary), var( --ion-color-secondary));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right,  var( --ion-color-primary), var( --ion-color-secondary)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+}
+ion-item {
+  --border-color:  var( --ion-color-secondary);
+
+}
+ion-note{
+  font-size: 13px;
+}
+ion-item.validate-message{
+  --padding-top: 5px;
 }

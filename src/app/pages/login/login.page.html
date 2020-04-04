@@ -20,8 +20,10 @@
                                     #emailCtrl="ngModel"
                             ></ion-input>
                         </ion-item>
-                        <ion-item *ngIf="!emailCtrl.valid && emailCtrl.touched" lines="none">
-                            <ion-label>Should be a valid value</ion-label>
+                        <ion-item *ngIf="!emailCtrl.valid && emailCtrl.touched" lines="none" class="validate-message">
+                            <ion-note>
+                                <ion-text>Should be a valid value</ion-text>
+                            </ion-note>
                         </ion-item>
                         <ion-item>
                             <ion-label position="floating">Password</ion-label>
@@ -33,7 +35,7 @@
                                     #passwordCtrl="ngModel"
                             ></ion-input>
                         </ion-item>
-                        <ion-item *ngIf="!passwordCtrl.valid && passwordCtrl.touched" lines="none">
+                        <ion-item *ngIf="!passwordCtrl.valid && passwordCtrl.touched" lines="none" class="validate-message">
                             <ion-label>Should be a valid value</ion-label>
                         </ion-item>
                     </ion-list>

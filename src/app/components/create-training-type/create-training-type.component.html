@@ -25,18 +25,10 @@
                       #nameCtrl="ngModel"
               ></ion-input>
             </ion-item>
-            <ion-item *ngIf="!nameCtrl.valid && nameCtrl.touched" lines="none">
-              <ion-label>Should be a valid value</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Color of tag</ion-label>
-              <ion-select [interfaceOptions]="customAlertOptions" interface="alert" placeholder="Select One">
-                <ion-select-option value="red">Red</ion-select-option>
-                <ion-select-option value="purple">Purple</ion-select-option>
-                <ion-select-option value="yellow">Yellow</ion-select-option>
-                <ion-select-option value="orange">Orange</ion-select-option>
-                <ion-select-option value="green">Green</ion-select-option>
-              </ion-select>
+            <ion-item *ngIf="!nameCtrl.valid && nameCtrl.touched" lines="none" class="validate-message">
+              <ion-note>
+                <ion-text>Should be a valid value</ion-text>
+              </ion-note>
             </ion-item>
           </ion-list>
           <ion-button [disabled]="!form.valid"  color="primary" type="submit" expand="block" fill="outline">Create</ion-button>

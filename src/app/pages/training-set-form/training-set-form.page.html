@@ -23,8 +23,10 @@
                                     #weightCtrl="ngModel"
                             ></ion-input>
                         </ion-item>
-                        <ion-item *ngIf="!weightCtrl.valid && weightCtrl.touched" lines="none">
-                            <ion-label>Should be a valid value</ion-label>
+                        <ion-item *ngIf="!weightCtrl.valid && weightCtrl.touched" lines="none" class="validate-message">
+                            <ion-note>
+                                <ion-text>Should be a valid value</ion-text>
+                            </ion-note>
                         </ion-item>
                         <ion-item>
                             <ion-label position="floating">Time</ion-label>
@@ -36,8 +38,10 @@
                                     #timeCtrl="ngModel"
                             ></ion-input>
                         </ion-item>
-                        <ion-item *ngIf="!timeCtrl.valid && timeCtrl.touched" lines="none">
-                            <ion-label>Should be a valid value</ion-label>
+                        <ion-item *ngIf="!timeCtrl.valid && timeCtrl.touched" lines="none" class="validate-message">
+                            <ion-note>
+                                <ion-text>Should be a valid value</ion-text>
+                            </ion-note>
                         </ion-item>
                         <ion-item>
                             <ion-label position="floating">Date</ion-label>
@@ -49,8 +53,10 @@
                                     #createdCtrl="ngModel"
                                     placeholder="Select Date"></ion-datetime>
                         </ion-item>
-                        <ion-item *ngIf="!createdCtrl.valid && createdCtrl.touched" lines="none">
-                            <ion-label>Should be a valid value</ion-label>
+                        <ion-item *ngIf="!createdCtrl.valid && createdCtrl.touched" lines="none" class="validate-message">
+                            <ion-note>
+                                <ion-text>Should be a valid value</ion-text>
+                            </ion-note>
                         </ion-item>
                     </ion-list>
                     <ion-button [disabled]="!form.valid"  color="primary" type="submit" expand="block" fill="outline">Add to my record

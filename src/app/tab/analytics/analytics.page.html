@@ -1,52 +1,64 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-     Analytics
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>
+            Analytics
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-<ion-grid>
-    <ion-row>
-        <ion-col size="12">
-            <form #form="ngForm" (ngSubmit)="onSubmit(form)">
-                <ion-list>
-                    <ion-item>
-                        <ion-label position="floating">Type</ion-label>
-                        <ion-select [ngModel]="'1'"  name="type">
-                            <ion-select-option value="1">1</ion-select-option>
-                        </ion-select>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label  position="floating">Start Date</ion-label>
-                        <ion-datetime
-                                ngModel
-                                name="start-date"
-                                required
-                                displayFormat="MMM DD YYYY"
-                                #startDateCtrl="ngModel"
-                                placeholder="Select Date"></ion-datetime>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label  position="floating">End Date</ion-label>
-                        <ion-datetime
-                                ngModel
-                                name="end-date"
-                                required
-                                displayFormat="MMM DD YYYY"
-                                #endDateCtrl="ngModel"
-                                placeholder="Select Date"></ion-datetime>
-                    </ion-item>
-                </ion-list>
-                <ion-button [disabled]="!form.valid ||  !datesValid()"  color="primary" type="submit" expand="block" fill="outline">Search</ion-button>
-            </form>
-        </ion-col>
-    </ion-row>
-    <ion-row>
-        <ion-col size="12">
-            <app-training-chart></app-training-chart>
-        </ion-col>
-    </ion-row>
-</ion-grid>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12">
+                <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+                    <ion-list>
+                        <ion-item>
+                            <ion-label position="floating">Type</ion-label>
+                            <ion-select [ngModel]="'1'" name="type">
+                                <ion-select-option value="1">1</ion-select-option>
+                            </ion-select>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label position="floating">Start Date</ion-label>
+                            <ion-datetime
+                                    ngModel
+                                    name="start-date"
+                                    required
+                                    displayFormat="MMM DD YYYY"
+                                    #startDateCtrl="ngModel"
+                                    placeholder="Select Date"></ion-datetime>
+                        </ion-item>
+                        <ion-item *ngIf="!startDateCtrl.valid && startDateCtrl.touched" class="validate-message">
+                            <ion-note>
+                                <ion-text>Should be a valid value</ion-text>
+                            </ion-note>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label position="floating">End Date</ion-label>
+                            <ion-datetime
+                                    ngModel
+                                    name="end-date"
+                                    required
+                                    displayFormat="MMM DD YYYY"
+                                    #endDateCtrl="ngModel"
+                                    placeholder="Select Date"></ion-datetime>
+                        </ion-item>
+                        <ion-item *ngIf="!endDateCtrl.valid && endDateCtrl.touched" class="validate-message">
+                            <ion-note>
+                                <ion-text>Should be a valid value</ion-text>
+                            </ion-note>
+                        </ion-item>
+                    </ion-list>
+                    <ion-button [disabled]="!form.valid ||  !datesValid()" color="primary" type="submit" expand="block"
+                                fill="outline">Search
+                    </ion-button>
+                </form>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12">
+                <app-training-chart></app-training-chart>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
