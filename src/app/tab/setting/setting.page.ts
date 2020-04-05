@@ -12,7 +12,9 @@ export class SettingPage {
 
     constructor(public router: Router, private modalCtrl: ModalController) {
     }
-
+    onLoginClick(){
+        this.router.navigate(['tabs/login']);
+    }
     onCreateType() {
         this.modalCtrl.create({component: CreateTrainingTypeComponent, componentProps: {}}).then(modalEl => {
             modalEl.present();
