@@ -60,8 +60,10 @@ export class ApiService {
         }));
     }
 
-    deleteTrainingSet() {
-
+    deleteTrainingSet(id: number) {
+        return this.http.delete(`${environment.config.apiUrl}${apiTypeEnum.TRAININGSET}/${id}`).pipe(tap(res => {
+            console.log(res);
+        }));
     }
 
     getTrainingByDay(startDate: any, endDate: any, type: any) {
