@@ -15,6 +15,7 @@ export class CreatingTrainingSetComponent implements OnInit {
     private isEditMode = false;
     private datePipe = DatePipe;
     private type: string;
+    private setId: number;
 
     constructor(private modalCtrl: ModalController,
                 private navParams: NavParams,
@@ -24,6 +25,7 @@ export class CreatingTrainingSetComponent implements OnInit {
             console.log(this.type);
         }
         if (navParams.get('set')) {
+            this.setId = navParams.get('set').id;
             this.currentSet = {
                 weight: navParams.get('set').weight,
                 times: navParams.get('set').times,
@@ -44,7 +46,11 @@ export class CreatingTrainingSetComponent implements OnInit {
         }
         console.log(this.currentSet);
         if (this.isEditMode) {
-
+            this.apiService.updateTrainingSet(this.currentSet, this.setId).subscribe(() => {
+                form.reset();
+                this.modalCtrl.dismiss(null, 'cancel').then(() => {
+                });
+            });
         } else {
             this.currentSet.type = this.type;
             this.apiService.addTrainingSet(this.currentSet).subscribe(() => {

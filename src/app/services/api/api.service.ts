@@ -51,8 +51,12 @@ export class ApiService {
         }));
     }
 
-    updateTrainingSet() {
-
+    updateTrainingSet(set: SetModel, id: number) {
+        const updateSet = set;
+        updateSet.type = environment.config.trainingTypePrefix + set.type;
+        return this.http.put(`${environment.config.apiUrl}${apiTypeEnum.TRAININGSET}/${id}`,   updateSet).pipe(tap(res => {
+            console.log(res);
+        }));
     }
 
     deleteTrainingSet() {
