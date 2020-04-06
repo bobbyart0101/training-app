@@ -5,6 +5,8 @@ import {take} from 'rxjs/operators';
 import {CreateTrainingTypeComponent} from '../../components/create-training-type/create-training-type.component';
 import {ApiService} from '../../services/api/api.service';
 import {DatePipe} from '@angular/common';
+import {CreatingTrainingSetComponent} from '../../components/creating-training-set/creating-training-set.component';
+import {SetModel} from '../../shared/set.model';
 
 @Component({
     selector: 'app-training-set',
@@ -35,17 +37,34 @@ export class TrainingSetPage implements OnInit {
         this.trainingSets = this.apiService.getTrainingType(this.id);
     }
 
-    addSet() {
-        this.router.navigate(['tabs/fitness-overview/training-set-update/', 'test']);
+    onAddSet() {
+        this.modalCtrl.create({component: CreatingTrainingSetComponent, componentProps: {}}).then(modalEl => {
+            modalEl.present().then();
+            return modalEl.onDidDismiss();
+        }).then(resultData => {
+            console.log(resultData.role);
+        });
     }
 
-    editSet(slidingItem: IonItemSliding) {
+    onEditSet(slidingItem: IonItemSliding, set: SetModel) {
         slidingItem.close();
-        this.router.navigate(['tabs/fitness-overview/training-set-update/', 'test']);
+        this.modalCtrl.create({component: CreatingTrainingSetComponent, componentProps: {set}}).then(modalEl => {
+            modalEl.present().then();
+            return modalEl.onDidDismiss();
+        }).then(resultData => {
+            console.log(resultData.role);
+        });
+    }
+
+    onDeleted(slidingItem: IonItemSliding,  set: SetModel) {
+        slidingItem.close();
     }
 
     onEditTrainingType() {
-        this.modalCtrl.create({component: CreateTrainingTypeComponent, componentProps: {id: this.id, typeName: this.typeName}}).then(modalEl => {
+        this.modalCtrl.create({
+            component: CreateTrainingTypeComponent,
+            componentProps: {id: this.id, typeName: this.typeName}
+        }).then(modalEl => {
             modalEl.present().then();
             return modalEl.onDidDismiss();
         }).then(resultData => {

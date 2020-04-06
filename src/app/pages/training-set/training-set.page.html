@@ -7,7 +7,7 @@
             <ion-button color="light" (click)="onEditTrainingType()">
                 <ion-icon name="create-outline" slot="icon-only"></ion-icon>
             </ion-button>
-            <ion-button color="light" (click)="addSet()">
+            <ion-button color="light" (click)="onAddSet()">
                 <ion-icon slot="icon-only" name="add-outline"></ion-icon>
             </ion-button>
         </ion-buttons>
@@ -33,10 +33,10 @@
                             </ion-note>
                         </ion-item>
                         <ion-item-options side="end">
-                            <ion-item-option (click)="editSet(slidingItem)">
+                            <ion-item-option (click)="onEditSet(slidingItem, set)">
                                 <ion-icon color="light" name="create-outline" slot="icon-only"></ion-icon>
                             </ion-item-option>
-                            <ion-item-option>
+                            <ion-item-option (click)="onDeleted(slidingItem, set)">
                                 <ion-icon color="light" name="trash-outline" slot="icon-only"></ion-icon>
                             </ion-item-option>
                         </ion-item-options>
