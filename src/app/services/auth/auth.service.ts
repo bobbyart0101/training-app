@@ -57,7 +57,7 @@ export class AuthService {
             }
         })).subscribe(() => {
             console.log('Login');
-            this.router.navigateByUrl('/tabs/fitness-overview');
+            this.router.navigateByUrl('/tabs/setting');
         });
     }
 

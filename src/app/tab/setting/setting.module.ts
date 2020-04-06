@@ -12,9 +12,6 @@ import {CreateTrainingTypeComponent} from '../../components/create-training-type
     FormsModule,
     RouterModule.forChild([{ path: '', component: SettingPage }])
   ],
-  entryComponents: [
-    CreateTrainingTypeComponent
-  ],
-  declarations: [SettingPage, CreateTrainingTypeComponent]
+  declarations: [SettingPage]
 })
 export class SettingPageModule {}

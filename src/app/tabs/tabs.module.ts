@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { TabsPageRoutingModule } from './tabs-routing.module';
 
 import { TabsPage } from './tabs.page';
+import {CreateTrainingTypeComponent} from '../components/create-training-type/create-training-type.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,9 @@ import { TabsPage } from './tabs.page';
     FormsModule,
     TabsPageRoutingModule
   ],
-  declarations: [TabsPage]
+  entryComponents: [
+    CreateTrainingTypeComponent
+  ],
+  declarations: [TabsPage,  CreateTrainingTypeComponent]
 })
 export class TabsPageModule {}

@@ -16,7 +16,7 @@ const routes: Routes = [
               import('../tab/fitness-overview/fitness-overview.module').then(m => m.FitnessOverviewPageModule)
           },
           {
-            path: 'training-set/:id',
+            path: 'training-set/:id/:name',
             loadChildren: () =>
                 import('../pages/training-set/training-set.module').then(m => m.TrainingSetPageModule)
           },

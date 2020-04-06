@@ -12,14 +12,29 @@ export class ApiService {
     constructor(private http: HttpClient) {
     }
 
-    getTrainingType() {
+    getTrainingTypes() {
         return this.http.get(`${environment.config.apiUrl}${apiTypeEnum.TRAININGTYPE}${environment.config.format}`).pipe(tap(res => {
             console.log(res);
         }));
     }
 
+    getTrainingType(id: any) {
+        return this.http.get(`${environment.config.apiUrl}${apiTypeEnum.TRAININGTYPE}/${id}/${apiTypeEnum.TRAININGSET}${environment.config.format}`)
+            .pipe(tap(res => {
+                console.log(res);
+            }));
+    }
+
     addTrainingType(typeName: string) {
         return this.http.post(`${environment.config.apiUrl}${apiTypeEnum.TRAININGTYPE}`, {
+            name: typeName
+        }).pipe(tap(res => {
+            console.log(res);
+        }));
+    }
+
+    updateTrainingType(id: any, typeName: string) {
+        return this.http.put(`${environment.config.apiUrl}${apiTypeEnum.TRAININGTYPE}/${id}`, {
             name: typeName
         }).pipe(tap(res => {
             console.log(res);

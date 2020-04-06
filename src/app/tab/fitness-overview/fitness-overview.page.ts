@@ -18,11 +18,11 @@ export class FitnessOverviewPage implements OnInit {
     }
 
     ionViewWillEnter() {
-        this.trainingTypes = this.apiService.getTrainingType();
+        this.trainingTypes = this.apiService.getTrainingTypes();
     }
 
-    onSelectedType(id: any) {
+    onSelectedType(id: any, name: any) {
         console.log(id);
-        this.router.navigate(['tabs/fitness-overview/training-set/', id]);
+        this.router.navigate(['tabs/fitness-overview/training-set/', id, name]);
     }
 }
