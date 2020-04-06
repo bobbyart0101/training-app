@@ -7,6 +7,7 @@ import { TabsPageRoutingModule } from './tabs-routing.module';
 
 import { TabsPage } from './tabs.page';
 import {CreateTrainingTypeComponent} from '../components/create-training-type/create-training-type.component';
+import {CreatingTrainingSetComponent} from '../components/creating-training-set/creating-training-set.component';
 
 @NgModule({
   imports: [
@@ -16,8 +17,8 @@ import {CreateTrainingTypeComponent} from '../components/create-training-type/cr
     TabsPageRoutingModule
   ],
   entryComponents: [
-    CreateTrainingTypeComponent
+    CreateTrainingTypeComponent, CreatingTrainingSetComponent
   ],
-  declarations: [TabsPage,  CreateTrainingTypeComponent]
+  declarations: [TabsPage,  CreateTrainingTypeComponent,  CreatingTrainingSetComponent]
 })
 export class TabsPageModule {}
