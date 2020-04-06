@@ -1,21 +1,24 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ModalController, NavParams} from '@ionic/angular';
 import {NgForm} from '@angular/forms';
 import {SetModel} from '../../shared/set.model';
 import {DatePipe} from '@angular/common';
 import {ApiService} from '../../services/api/api.service';
+import {Subscription} from 'rxjs';
 
 @Component({
     selector: 'app-creating-training-set',
     templateUrl: './creating-training-set.component.html',
     styleUrls: ['./creating-training-set.component.scss'],
 })
-export class CreatingTrainingSetComponent implements OnInit {
+export class CreatingTrainingSetComponent implements OnInit, OnDestroy {
     private readonly currentSet: SetModel = new SetModel();
     private isEditMode = false;
     private datePipe = DatePipe;
     private type: string;
     private setId: number;
+    private editSub: Subscription;
+    private addSub: Subscription;
 
     constructor(private modalCtrl: ModalController,
                 private navParams: NavParams,
@@ -40,20 +43,29 @@ export class CreatingTrainingSetComponent implements OnInit {
     ngOnInit() {
     }
 
+    ngOnDestroy() {
+        if (this.editSub) {
+            this.editSub.unsubscribe();
+        }
+        if (this.addSub) {
+            this.addSub.unsubscribe();
+        }
+    }
+
     onSubmit(form: NgForm) {
         if (!form.valid) {
             return;
         }
         console.log(this.currentSet);
         if (this.isEditMode) {
-            this.apiService.updateTrainingSet(this.currentSet, this.setId).subscribe(() => {
+            this.editSub = this.apiService.updateTrainingSet(this.currentSet, this.setId).subscribe(() => {
                 form.reset();
                 this.modalCtrl.dismiss(null, 'cancel').then(() => {
                 });
             });
         } else {
             this.currentSet.type = this.type;
-            this.apiService.addTrainingSet(this.currentSet).subscribe(() => {
+            this.addSub = this.apiService.addTrainingSet(this.currentSet).subscribe(() => {
                 form.reset();
                 this.modalCtrl.dismiss(null, 'cancel').then(() => {
                 });
