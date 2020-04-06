@@ -20,6 +20,7 @@ export class TrainingSetPage implements OnInit, OnDestroy {
     trainingSets: any;
     private datePipe = DatePipe;
     private setSubscription: Subscription;
+    private deleteSubscription: Subscription;
 
     constructor(private router: Router,
                 private route: ActivatedRoute,
@@ -49,7 +50,12 @@ export class TrainingSetPage implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.setSubscription.unsubscribe();
+        if (this.setSubscription) {
+            this.setSubscription.unsubscribe();
+        }
+        if (this.deleteSubscription) {
+            this.deleteSubscription.unsubscribe();
+        }
     }
 
     ionViewDidLeave() {
@@ -86,6 +92,10 @@ export class TrainingSetPage implements OnInit, OnDestroy {
 
     onDeleted(slidingItem: IonItemSliding, set: SetModel) {
         slidingItem.close();
+        this.deleteSubscription = this.apiService.deleteTrainingSet(set.id).subscribe((res) => {
+            console.log(res);
+            this.loadSetsByAction();
+        });
     }
 
     onEditTrainingType() {
