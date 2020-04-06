@@ -14,8 +14,10 @@
                     <ion-list>
                         <ion-item>
                             <ion-label position="floating">Type</ion-label>
-                            <ion-select [ngModel]="'1'" name="type">
-                                <ion-select-option value="1">1</ion-select-option>
+                            <ion-select name="type"
+                                        ngModel
+                                        required>
+                                <ion-select-option *ngFor="let type of  (trainingTypes)" value="{{type.id}}">{{type.name}}</ion-select-option>
                             </ion-select>
                         </ion-item>
                         <ion-item>
