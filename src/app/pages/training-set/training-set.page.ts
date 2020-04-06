@@ -4,6 +4,7 @@ import {IonItemSliding, ModalController} from '@ionic/angular';
 import {take} from 'rxjs/operators';
 import {CreateTrainingTypeComponent} from '../../components/create-training-type/create-training-type.component';
 import {ApiService} from '../../services/api/api.service';
+import {DatePipe} from '@angular/common';
 
 @Component({
     selector: 'app-training-set',
@@ -14,6 +15,7 @@ export class TrainingSetPage implements OnInit {
     private id;
     private typeName;
     trainingSets: any;
+    private datePipe = DatePipe;
 
     constructor(private router: Router,
                 private route: ActivatedRoute,
