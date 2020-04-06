@@ -1,15 +1,16 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {apiTypeEnum} from '../../shared/enum/api-type.enum';
 import {tap} from 'rxjs/operators';
 import {SetModel} from '../../shared/set.model';
+import {Subject} from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ApiService {
-
+    searchResult: Subject<object> = new Subject();
     constructor(private http: HttpClient) {
     }
 
@@ -45,8 +46,8 @@ export class ApiService {
     addTrainingSet(set: SetModel) {
         const updateSet = set;
         updateSet.type = environment.config.trainingTypePrefix + set.type;
-        console.log( updateSet);
-        return this.http.post(`${environment.config.apiUrl}${apiTypeEnum.TRAININGSET}`,   updateSet).pipe(tap(res => {
+        console.log(updateSet);
+        return this.http.post(`${environment.config.apiUrl}${apiTypeEnum.TRAININGSET}`, updateSet).pipe(tap(res => {
             console.log(res);
         }));
     }
@@ -54,7 +55,7 @@ export class ApiService {
     updateTrainingSet(set: SetModel, id: number) {
         const updateSet = set;
         updateSet.type = environment.config.trainingTypePrefix + set.type;
-        return this.http.put(`${environment.config.apiUrl}${apiTypeEnum.TRAININGSET}/${id}`,   updateSet).pipe(tap(res => {
+        return this.http.put(`${environment.config.apiUrl}${apiTypeEnum.TRAININGSET}/${id}`, updateSet).pipe(tap(res => {
             console.log(res);
         }));
     }
@@ -63,7 +64,8 @@ export class ApiService {
 
     }
 
-    getTrainingByDay() {
-
+    getTrainingByDay(startDate: any, endDate: any, type: any) {
+        const params = new HttpParams().set('startDate', startDate).set('endDate', endDate).set('type', type);
+        return this.http.get(`${environment.config.apiUrl}${apiTypeEnum.TRAININGBYDAY}`, {params});
     }
 }
