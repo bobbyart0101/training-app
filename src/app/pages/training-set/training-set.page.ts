@@ -41,6 +41,12 @@ export class TrainingSetPage implements OnInit, OnDestroy {
         });
     }
 
+    loadSetsByAction() {
+        this.setSubscription.unsubscribe();
+        this.setSubscription = this.apiService.getTrainingType(this.id).subscribe((res) => {
+            this.trainingSets = res;
+        });
+    }
 
     ngOnDestroy() {
         this.setSubscription.unsubscribe();
@@ -51,7 +57,8 @@ export class TrainingSetPage implements OnInit, OnDestroy {
 
     doRefresh(event) {
         console.log('Begin async operation');
-        this.trainingSets = this.apiService.getTrainingType(this.id).subscribe((res) => {
+        this.setSubscription.unsubscribe();
+        this.setSubscription = this.apiService.getTrainingType(this.id).subscribe((res) => {
             this.trainingSets = res;
             event.target.complete();
         });
@@ -63,7 +70,7 @@ export class TrainingSetPage implements OnInit, OnDestroy {
             modalEl.present().then();
             return modalEl.onDidDismiss();
         }).then(resultData => {
-            console.log(resultData.role);
+            this.loadSetsByAction();
         });
     }
 
@@ -73,7 +80,7 @@ export class TrainingSetPage implements OnInit, OnDestroy {
             modalEl.present().then();
             return modalEl.onDidDismiss();
         }).then(resultData => {
-            console.log(resultData.role);
+            this.loadSetsByAction();
         });
     }
 
