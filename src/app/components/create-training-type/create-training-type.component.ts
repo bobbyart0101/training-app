@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {ModalController} from '@ionic/angular';
+import {ApiService} from '../../services/api/api.service';
 
 @Component({
     selector: 'app-create-training-type',
@@ -8,13 +9,7 @@ import {ModalController} from '@ionic/angular';
     styleUrls: ['./create-training-type.component.scss'],
 })
 export class CreateTrainingTypeComponent implements OnInit {
-    private color: string = '#127bdc';
-    customAlertOptions: any = {
-        header: 'Hair Color',
-        subHeader: 'Select your hair color',
-        message: 'Only select your dominant hair color'
-    };
-    constructor(private modalCtrl: ModalController) {
+    constructor(private modalCtrl: ModalController, private apiService: ApiService) {
     }
 
 
@@ -22,7 +17,15 @@ export class CreateTrainingTypeComponent implements OnInit {
     }
 
     onSubmit(form: NgForm) {
-
+        if (!form.valid) {
+            return;
+        }
+        const typeName = form.value.name;
+        this.apiService.addTrainingType(typeName).subscribe((res) => {
+            form.reset();
+            this.modalCtrl.dismiss(null, 'cancel').then(() => {
+            });
+        });
     }
 
     onCancel() {

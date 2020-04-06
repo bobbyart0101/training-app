@@ -14,7 +14,31 @@ export class ApiService {
 
     getTrainingType() {
         return this.http.get(`${environment.config.apiUrl}${apiTypeEnum.TRAININGTYPE}${environment.config.format}`).pipe(tap(res => {
-            console.log(res );
+            console.log(res);
         }));
+    }
+
+    addTrainingType(typeName: string) {
+        return this.http.post(`${environment.config.apiUrl}${apiTypeEnum.TRAININGTYPE}`, {
+            name: typeName
+        }).pipe(tap(res => {
+            console.log(res);
+        }));
+    }
+
+    addTrainingSet() {
+
+    }
+
+    updateTrainingSet() {
+
+    }
+
+    deleteTrainingSet() {
+
+    }
+
+    getTrainingByDay() {
+
     }
 }
