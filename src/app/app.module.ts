@@ -15,6 +15,7 @@ import {Platform} from '@ionic/angular';
 import {JwtInterceptor} from './shared/helper/jwt.interceptor';
 import { HTTP } from '@ionic-native/http/ngx';
 import {ErrorInterceptor} from './shared/helper/error.interceptor';
+import { IonicStorageModule } from '@ionic/storage';
 @NgModule({
     declarations: [AppComponent],
     entryComponents: [],
@@ -24,7 +25,8 @@ import {ErrorInterceptor} from './shared/helper/error.interceptor';
         AppRoutingModule,
         FormsModule,
         ChartsModule,
-        HttpClientModule
+        HttpClientModule,
+        IonicStorageModule.forRoot()
     ],
     providers: [
         StatusBar,
