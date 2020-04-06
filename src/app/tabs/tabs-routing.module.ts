@@ -19,11 +19,6 @@ const routes: Routes = [
             path: 'training-set/:id/:name',
             loadChildren: () =>
                 import('../pages/training-set/training-set.module').then(m => m.TrainingSetPageModule)
-          },
-          {
-            path: 'training-set-update/:id',
-            loadChildren: () =>
-                import('../pages/training-set-form/training-set-form.module').then(m => m.TrainingSetFormPageModule)
           }
         ]
       },

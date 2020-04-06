@@ -38,7 +38,8 @@ export class TrainingSetPage implements OnInit {
     }
 
     onAddSet() {
-        this.modalCtrl.create({component: CreatingTrainingSetComponent, componentProps: {}}).then(modalEl => {
+        console.log( this.id);
+        this.modalCtrl.create({component: CreatingTrainingSetComponent, componentProps: {type: this.id }}).then(modalEl => {
             modalEl.present().then();
             return modalEl.onDidDismiss();
         }).then(resultData => {
@@ -48,7 +49,7 @@ export class TrainingSetPage implements OnInit {
 
     onEditSet(slidingItem: IonItemSliding, set: SetModel) {
         slidingItem.close();
-        this.modalCtrl.create({component: CreatingTrainingSetComponent, componentProps: {set}}).then(modalEl => {
+        this.modalCtrl.create({component: CreatingTrainingSetComponent, componentProps: {set, type: this.id}}).then(modalEl => {
             modalEl.present().then();
             return modalEl.onDidDismiss();
         }).then(resultData => {

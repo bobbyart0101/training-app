@@ -6,9 +6,4 @@ export class SetModel {
     type?: string;
     user?: string;
 
-    constructor(weight: number, times: number, createdDate: string) {
-        this.weight = weight;
-        this.times = times;
-        this.createdDate = createdDate;
-    }
 }

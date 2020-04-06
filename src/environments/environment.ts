@@ -8,7 +8,8 @@ export const environment = {
     primaryColor : '#FF5F6D',
     secondaryColor: '#FFC371',
     apiUrl: 'http://127.0.0.1:8000/api/',
-    format: '.json'
+    format: '.json',
+    trainingTypePrefix: '/api/training_types/'
   }
 };
 

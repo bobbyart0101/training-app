@@ -24,6 +24,8 @@ export class ErrorInterceptor implements HttpInterceptor {
                 this.alertService.presentAlert(errorMessage(errorEum.LOGINFAILED)).then(() => {
                 });
             } else {
+                this.alertService.presentAlert(errorMessage(errorEum.GENERAL)).then(() => {
+                });
             }
             const error = err.error.message || err.statusText;
             return throwError(error);
