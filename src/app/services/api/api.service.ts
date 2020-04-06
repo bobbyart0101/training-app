@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {apiTypeEnum} from '../../shared/enum/api-type.enum';
 import {tap} from 'rxjs/operators';
+import {SetModel} from '../../shared/set.model';
 
 @Injectable({
     providedIn: 'root'
@@ -41,8 +42,13 @@ export class ApiService {
         }));
     }
 
-    addTrainingSet() {
-
+    addTrainingSet(set: SetModel) {
+        const updateSet = set;
+        updateSet.type = environment.config.trainingTypePrefix + set.type;
+        console.log( updateSet);
+        return this.http.post(`${environment.config.apiUrl}${apiTypeEnum.TRAININGSET}`,   updateSet).pipe(tap(res => {
+            console.log(res);
+        }));
     }
 
     updateTrainingSet() {
