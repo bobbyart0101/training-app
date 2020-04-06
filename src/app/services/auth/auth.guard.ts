@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router, CanLoad, Route, UrlSegment} from '@angular/router';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {AuthService} from './auth.service';
 import {switchMap, take, tap} from 'rxjs/operators';
 
@@ -20,7 +20,7 @@ export class AuthGuard implements  CanActivate {
                 if (!isAuthenticated) {
                     return this.authService.autoLogin();
                 } else {
-                    return isAuthenticated;
+                    return of( isAuthenticated);
                 }
             }),
             tap((isAuthenticated: boolean) => {

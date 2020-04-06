@@ -16,10 +16,6 @@ export class SettingPage {
                 private authService: AuthService) {
     }
 
-    onLoginClick() {
-        this.router.navigate(['/login']);
-    }
-
     onLoginOut() {
         this.authService.logout();
     }
