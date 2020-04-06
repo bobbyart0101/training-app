@@ -7,9 +7,10 @@ export class DatePipe implements PipeTransform {
 
     transform(value: any, ...args: any[]): any {
         if (value) {
-            console.log(value);
+            const dateData = value.split('T');
+            const dateObj = new Date(dateData);
+            return new Intl.DateTimeFormat('en-GB').format(dateObj);
         }
-        return value;
     }
 
 }
