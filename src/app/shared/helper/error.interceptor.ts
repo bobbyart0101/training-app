@@ -28,7 +28,6 @@ export class ErrorInterceptor implements HttpInterceptor {
             const error = err.error.message || err.statusText;
             return throwError(error);
         }), tap(() => {
-            console.log('loading dismiss');
             // this.loadingService.loadingDismiss().then();
         }));
     }

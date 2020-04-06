@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../../services/api/api.service';
+import {Observable} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-fitness-overview',
@@ -7,16 +9,20 @@ import {ApiService} from '../../services/api/api.service';
     styleUrls: ['fitness-overview.page.scss']
 })
 export class FitnessOverviewPage implements OnInit {
+    trainingTypes: any;
 
-    constructor(private apiService: ApiService) {
+    constructor(private apiService: ApiService, private router: Router) {
     }
 
     ngOnInit() {
     }
 
     ionViewWillEnter() {
-        this.apiService.getTrainingType().subscribe((res) => {
-            console.log(res);
-        });
+        this.trainingTypes = this.apiService.getTrainingType();
+    }
+
+    onSelectedType(id: any) {
+        console.log(id);
+        this.router.navigate(['tabs/fitness-overview/training-set/', id]);
     }
 }
