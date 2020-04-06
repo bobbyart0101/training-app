@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpRequest, HttpHandler, HttpEvent, HttpInterceptor} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
-import {catchError} from 'rxjs/operators';
+import {catchError, tap} from 'rxjs/operators';
 import {errorEum, errorMessage} from '../enum/error.eum';
 import {AuthService} from '../../services/auth/auth.service';
 import {AlertService} from '../../services/alert/alert.service';
@@ -25,9 +25,11 @@ export class ErrorInterceptor implements HttpInterceptor {
                 });
             } else {
             }
-            this.loadingService.loadingDismiss().then();
             const error = err.error.message || err.statusText;
             return throwError(error);
+        }), tap(() => {
+            console.log('loading dismiss');
+            this.loadingService.loadingDismiss().then();
         }));
     }
 

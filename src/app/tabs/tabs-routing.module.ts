@@ -47,21 +47,6 @@ const routes: Routes = [
           }
         ]
       },
-      {
-        path: 'login',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-                import('../pages/login/login.module').then(m => m.LoginPageModule)
-          }
-        ]
-      },
-      {
-        path: '',
-        redirectTo: '/tabs/fitness-overview',
-        pathMatch: 'full'
-      }
     ]
   },
   {

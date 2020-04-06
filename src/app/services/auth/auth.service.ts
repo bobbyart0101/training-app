@@ -3,36 +3,45 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {UserModel} from '../../shared/user.model';
 import {apiTypeEnum} from '../../shared/enum/api-type.enum';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, from, Observable} from 'rxjs';
 import {Storage} from '@ionic/storage';
-import {map} from 'rxjs/operators';
-import {Platform} from '@ionic/angular';
+import {map, tap} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
-    private currentUserSubject: BehaviorSubject<UserModel>;
-    public currentUser: Observable<UserModel>;
+    private currentUserSubject: BehaviorSubject<UserModel> = new BehaviorSubject<UserModel>(null);
 
     constructor(private http: HttpClient,
-                private storage: Storage,
-                private platform: Platform) {
-        this.platform.ready().then(() => {
-            this.getCurrentUser();
-        });
+                private storage: Storage, private router: Router) {
     }
 
-    getCurrentUser() {
-        this.storage.get('currentUser').then((user) => {
-            this.currentUserSubject = new BehaviorSubject<UserModel>(user);
-            this.currentUser = this.currentUserSubject.asObservable();
-            console.log('Current User Data', user);
-        });
-    }
 
     public get currentUserValue(): UserModel {
         return this.currentUserSubject.value;
+    }
+
+    public get userIsAuthenticated() {
+        return this.currentUserSubject.asObservable().pipe(map(user => {
+            if (user) {
+                return !!user.token;
+            } else {
+                return false;
+            }
+        }));
+    }
+
+    autoLogin() {
+        return from(this.storage.get('currentUser')).pipe(tap((user: UserModel) => {
+            this.currentUserSubject.next(user);
+            // this.router.navigate(['/login']);
+            console.log('Current User Data', user);
+        }), map((user: UserModel) => {
+            // If user exists, return true
+            return !!user;
+        }));
     }
 
     login(username: string, password: string) {
@@ -43,16 +52,20 @@ export class AuthService {
                 user.token = userData.token;
                 this.storage.set('currentUser', user).then(() => {
                     console.log('Store Current User', user);
+                    this.currentUserSubject.next(user);
                 });
             }
         })).subscribe(() => {
             console.log('Login');
+            this.router.navigateByUrl('/tabs/fitness-overview');
         });
     }
 
     logout() {
         this.storage.set('currentUser', null).then(() => {
+            this.currentUserSubject.next(null);
             console.log('Remove Current User');
+            this.router.navigateByUrl('/login');
         });
     }
 }

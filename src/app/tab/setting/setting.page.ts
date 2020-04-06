@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {ModalController} from '@ionic/angular';
 import {CreateTrainingTypeComponent} from '../../components/create-training-type/create-training-type.component';
+import {AuthService} from '../../services/auth/auth.service';
 
 @Component({
     selector: 'app-setting',
@@ -10,11 +11,19 @@ import {CreateTrainingTypeComponent} from '../../components/create-training-type
 })
 export class SettingPage {
 
-    constructor(public router: Router, private modalCtrl: ModalController) {
+    constructor(public router: Router,
+                private modalCtrl: ModalController,
+                private authService: AuthService) {
     }
-    onLoginClick(){
-        this.router.navigate(['tabs/login']);
+
+    onLoginClick() {
+        this.router.navigate(['/login']);
     }
+
+    onLoginOut() {
+        this.authService.logout();
+    }
+
     onCreateType() {
         this.modalCtrl.create({component: CreateTrainingTypeComponent, componentProps: {}}).then(modalEl => {
             modalEl.present();
