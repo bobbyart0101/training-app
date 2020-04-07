@@ -9,11 +9,7 @@ import {ApiService} from '../../services/api/api.service';
 export class TableComponent implements OnInit {
     tableStyle = 'material';
 
-    rows = [
-        {weight: 'Austin', rep: 'Male'},
-        {weight: 'Dany', rep: 'Male'},
-        {weight: 'Molly', rep: 'Female'},
-    ];
+    rows = [];
     columns = [
         {name: 'Weight'},
         {name: 'Rep'}
