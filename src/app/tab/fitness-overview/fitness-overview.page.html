@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content>
-    <ion-grid>
+    <ion-grid [@fadeAnimation]>
         <ion-row *ngFor="let type of  (trainingTypes | async)">
             <ion-col size="12">
                 <ion-card class="ion-justify-content-center training-type__card"

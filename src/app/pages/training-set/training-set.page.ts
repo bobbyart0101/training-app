@@ -8,11 +8,13 @@ import {DatePipe} from '@angular/common';
 import {CreatingTrainingSetComponent} from '../../components/creating-training-set/creating-training-set.component';
 import {SetModel} from '../../shared/set.model';
 import {Subscription} from 'rxjs';
+import {$animations} from '../../animations/fade.animation';
 
 @Component({
     selector: 'app-training-set',
     templateUrl: './training-set.page.html',
     styleUrls: ['./training-set.page.scss'],
+    animations: $animations
 })
 export class TrainingSetPage implements OnInit, OnDestroy {
     private id;
