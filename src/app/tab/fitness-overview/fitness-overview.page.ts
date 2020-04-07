@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../../services/api/api.service';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
+import {LoadingService} from '../../services/loading/loading.service';
 
 @Component({
     selector: 'app-fitness-overview',
@@ -22,7 +23,6 @@ export class FitnessOverviewPage implements OnInit {
     }
 
     onSelectedType(id: any, name: any) {
-        console.log(id);
         this.router.navigate(['tabs/fitness-overview/training-set/', id, name]);
     }
 }
