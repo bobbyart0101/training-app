@@ -16,7 +16,6 @@ import {JwtInterceptor} from './shared/helper/jwt.interceptor';
 import { HTTP } from '@ionic-native/http/ngx';
 import {ErrorInterceptor} from './shared/helper/error.interceptor';
 import { IonicStorageModule } from '@ionic/storage';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 @NgModule({
     declarations: [AppComponent],
     entryComponents: [],
@@ -27,7 +26,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
         FormsModule,
         ChartsModule,
         HttpClientModule,
-        BrowserAnimationsModule,
         IonicStorageModule.forRoot()
     ],
     providers: [
