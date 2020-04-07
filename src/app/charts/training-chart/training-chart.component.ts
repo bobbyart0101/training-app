@@ -19,6 +19,15 @@ export class TrainingChartComponent implements OnInit {
     public lineChartLabels: Label[] = [];
     public lineChartOptions: ChartOptions = {
         responsive: true,
+        scales: {
+            yAxes: [
+                {
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }
+            ]
+        }
     };
     public lineChartColors: Color[] = [
         {
@@ -34,9 +43,10 @@ export class TrainingChartComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.apiService.searchResult.subscribe((res) => {
-              this.lineChartLabels = Object.keys(res);
-              this.lineChartData[0].data = Object.values(res);
+        this.apiService.searchResult.subscribe((res: any) => {
+            this.lineChartLabels = Object.keys(res[0]);
+            const chartValue: any = Object.values(res[0]);
+            this.lineChartData[0].data = chartValue;
         });
     }
 

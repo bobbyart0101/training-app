@@ -33,6 +33,7 @@ export class AnalyticsPage implements OnInit {
         const type = this.form.value.type;
         this.apiService.getTrainingByDay(startDate, endDate, type).subscribe((res) => {
             this.showChart = true;
+            console.log(res);
             this.apiService.searchResult.next(res);
         });
     }
