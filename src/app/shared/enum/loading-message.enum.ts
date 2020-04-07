@@ -1,3 +1,4 @@
 export enum LoadingMessageEnum {
-    general = 'Loading...'
+    general = 'Loading...',
+    analytic = 'Analyzing data...'
 }
