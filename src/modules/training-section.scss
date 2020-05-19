@@ -1,0 +1,16 @@
+.training-type__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  min-height: 150px;
+
+  ion-card-title {
+    color: white;
+  }
+}
+
+.training-type__card {
+  background: -webkit-linear-gradient(to right, var(--ion-color-primary), var(--ion-color-secondary)); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, var(--ion-color-primary), var(--ion-color-secondary)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
