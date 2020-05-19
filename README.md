@@ -8,6 +8,8 @@
 * JWT authentication  
 * REST API: Check this [Git Repo](https://github.com/bobbyart0101/training-api). 
 * [ng2-charts](https://www.npmjs.com/package/ng2-charts)
+* [ngx-datatable](https://swimlane.github.io/ngx-datatable)
+
 ## Preview
 ![Demo](/src/assets/demo.gif)
 
