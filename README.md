@@ -3,12 +3,11 @@
  This app is made with ionic/angular framework as frontend and Symfony API platform as backend. With jwt authentication, users can access their training data with security.
 
 ## Tool
-Ionic  
-Angular  
-JWT authentication  
-RESTful API: Check this Git Repo. https://github.com/bobbyart0101/training-api
-
-
+* Ionic  
+* Angular  
+* JWT authentication  
+* REST API: Check this [Git Repo](https://github.com/bobbyart0101/training-api). 
+* [ng2-charts](https://www.npmjs.com/package/ng2-charts)
 ## Preview
 ![Demo](/src/assets/demo.gif)
 
