@@ -17,7 +17,8 @@
                             <ion-select name="type"
                                         ngModel
                                         required>
-                                <ion-select-option *ngFor="let type of  (trainingTypes)" value="{{type.id}}">{{type.name}}</ion-select-option>
+                                <ion-select-option *ngFor="let type of  (trainingTypes)"
+                                                   value="{{type.id}}">{{type.name}}</ion-select-option>
                             </ion-select>
                         </ion-item>
                         <ion-item>
@@ -43,7 +44,7 @@
                                     required
                                     displayFormat="MMM DD YYYY"
                                     #endDateCtrl="ngModel"
-                                    ></ion-datetime>
+                            ></ion-datetime>
                         </ion-item>
                         <ion-item *ngIf="!endDateCtrl.valid && endDateCtrl.touched" class="validate-message">
                             <ion-note>

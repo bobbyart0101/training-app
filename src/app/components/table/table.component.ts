@@ -24,8 +24,8 @@ export class TableComponent implements OnInit {
             const updateRows = [];
             console.log(tableResult);
             tableResult.forEach((row) => {
-              const updateRow = {weight: row[0], rep: row[1]};
-              updateRows.push(updateRow);
+                const updateRow = {weight: row[0], rep: row[1]};
+                updateRows.push(updateRow);
             });
             this.rows = [...updateRows];
         });

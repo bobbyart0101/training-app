@@ -16,7 +16,6 @@ export class ErrorInterceptor implements HttpInterceptor {
     }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        // this.loadingService.loadingPresent(LoadingMessageEnum.general).then();
         return next.handle(request).pipe(catchError(err => {
             if (err.status === errorEum.LOGINFAILED) {
                 // auto logout if 401 response returned from api
@@ -30,7 +29,6 @@ export class ErrorInterceptor implements HttpInterceptor {
             const error = err.error.message || err.statusText;
             return throwError(error);
         }), tap(() => {
-            // this.loadingService.loadingDismiss().then();
         }));
     }
 

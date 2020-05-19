@@ -23,10 +23,11 @@
         <ion-row>
             <ion-col size="12">
                 <ion-list>
-                    <ion-item-sliding #slidingItem *ngFor="let set of  (trainingSets)" >
+                    <ion-item-sliding #slidingItem *ngFor="let set of  (trainingSets)">
                         <ion-item>
                             <ion-label>
-                                <ion-text>{{set.weight}} <span class="ion-text__span">kg</span> / {{set.times}} <span class="ion-text__span">reps</span></ion-text>
+                                <ion-text>{{set.weight}} <span class="ion-text__span">kg</span> / {{set.times}} <span
+                                        class="ion-text__span">reps</span></ion-text>
                             </ion-label>
                             <ion-note slot="end">
                                 <ion-icon name="calendar" class="space-left" color="primary"></ion-icon>

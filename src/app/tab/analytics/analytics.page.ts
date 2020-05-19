@@ -12,6 +12,7 @@ export class AnalyticsPage implements OnInit {
     @ViewChild('form', {static: true}) form: NgForm;
     trainingTypes: any;
     showChart = false;
+
     constructor(private apiService: ApiService) {
     }
 

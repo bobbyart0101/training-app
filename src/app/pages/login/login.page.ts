@@ -21,7 +21,7 @@ export class LoginPage implements OnInit {
         }
         const username = form.value.username;
         const password = form.value.password;
-        console.log(username, password );
+        console.log(username, password);
         this.authService.login(username, password);
         form.reset();
     }

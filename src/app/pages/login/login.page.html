@@ -20,7 +20,8 @@
                                     #usernameCtrl="ngModel"
                             ></ion-input>
                         </ion-item>
-                        <ion-item *ngIf="!usernameCtrl.valid && usernameCtrl.touched" lines="none" class="validate-message">
+                        <ion-item *ngIf="!usernameCtrl.valid && usernameCtrl.touched" lines="none"
+                                  class="validate-message">
                             <ion-note>
                                 <ion-text>Should be a valid value</ion-text>
                             </ion-note>
@@ -35,13 +36,16 @@
                                     #passwordCtrl="ngModel"
                             ></ion-input>
                         </ion-item>
-                        <ion-item *ngIf="!passwordCtrl.valid && passwordCtrl.touched" lines="none" class="validate-message">
+                        <ion-item *ngIf="!passwordCtrl.valid && passwordCtrl.touched" lines="none"
+                                  class="validate-message">
                             <ion-note>
                                 <ion-text>Should be a valid value</ion-text>
                             </ion-note>
                         </ion-item>
                     </ion-list>
-                    <ion-button [disabled]="!form.valid" type="submit" color="primary" expand="block" fill="outline">Login</ion-button>
+                    <ion-button [disabled]="!form.valid" type="submit" color="primary" expand="block" fill="outline">
+                        Login
+                    </ion-button>
                 </ion-col>
             </ion-row>
         </ion-grid>
