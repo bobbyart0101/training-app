@@ -5,5 +5,4 @@ export class SetModel {
     createdDate: string;
     type?: string;
     user?: string;
-
 }
