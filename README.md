@@ -11,7 +11,7 @@
 * [ngx-datatable](https://swimlane.github.io/ngx-datatable)
 
 ## Api Configuration
-Add config `environment.ts`
+Add config `environment.ts`  
  config: {
         primaryColor : '#FF5F6D',  
         secondaryColor: '#FFC371',  
