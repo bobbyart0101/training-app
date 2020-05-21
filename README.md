@@ -10,6 +10,15 @@
 * [ng2-charts](https://www.npmjs.com/package/ng2-charts)
 * [ngx-datatable](https://swimlane.github.io/ngx-datatable)
 
+## Api Configuration
+Add config `environment.ts`
+ config: {
+        primaryColor : '#FF5F6D',  
+        secondaryColor: '#FFC371',  
+        apiUrl: '[Api endpoint]',  
+        format: '.json',  
+        trainingTypePrefix: '/api/training_types/'  
+    }
 ## Preview
 ![Demo](/src/assets/demo.gif)
 
